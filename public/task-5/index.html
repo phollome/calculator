@@ -51,21 +51,6 @@
 
       let lastValue = 0;
 
-      function addition() {
-        const currentValue = display.value;
-        lastValue = lastValue + Number.parseInt(currentValue);
-        display.value = lastValue;
-      }
-
-      document.getElementById("addition").addEventListener("click", addition);
-
-      document
-        .getElementById("show-result")
-        .addEventListener("click", function () {
-          addition();
-          lastValue = 0;
-        });
-
       document.getElementById("0").addEventListener("click", function () {
         type(0);
       });
@@ -95,10 +80,6 @@
       });
       document.getElementById("9").addEventListener("click", function () {
         type(9);
-      });
-
-      document.getElementById("clear").addEventListener("click", function () {
-        display.value = 0;
       });
     </script>
   </body>
