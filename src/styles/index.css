@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br to-gray-600 from-gray-400;
+}
+
+.stage {
+  @apply flex min-h-dvh p-4 justify-center items-center;
+}
+
+.widget {
+  @apply flex flex-col gap-1 bg-gradient-to-b from-slate-700 to-slate-900 p-8 rounded-lg shadow-xl shadow-gray-800;
+}
+
+input#display {
+  @apply w-full h-16 text-5xl rounded-lg px-2 text-stone-600 text-right bg-stone-300 pointer-events-none font-mono shadow-inner shadow-stone-800 mb-8 text-ellipsis;
+}
+
+.row {
+  @apply flex gap-1 max-w-80;
+}
+.btn {
+  @apply block text-3xl font-bold bg-gray-600 active:bg-gray-700 text-gray-200 rounded-xl w-full h-16 shadow-inner shadow-gray-500 active:shadow-gray-800 border-2 border-slate-900;
+}
+.btn.operation {
+  @apply bg-yellow-600 active:bg-yellow-700 shadow-yellow-500 active:shadow-yellow-800;
+}
+.btn.clear {
+  @apply bg-red-600 active:bg-red-700 shadow-red-500 active:shadow-red-800;
+}
+.btn#show-result {
+  @apply bg-green-600 active:bg-green-700 shadow-green-500 active:shadow-green-800;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator - Task 5 - Hints</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <div class="widget">
+        <div class="row">
+          <input id="display" value="0" />
+        </div>
+        <div class="row">
+          <button id="7" class="btn">7</button>
+          <button id="8" class="btn">8</button>
+          <button id="9" class="btn">9</button>
+          <button id="clear" class="btn clear">C</button>
+        </div>
+        <div class="row">
+          <button id="4" class="btn">4</button>
+          <button id="5" class="btn">5</button>
+          <button id="6" class="btn">6</button>
+          <button id="addition" class="btn operation">+</button>
+        </div>
+        <div class="row">
+          <button id="1" class="btn">1</button>
+          <button id="2" class="btn">2</button>
+          <button id="3" class="btn">3</button>
+          <button id="subtraction" class="btn operation">–</button>
+        </div>
+        <div class="row">
+          <button id="0" class="btn">0</button>
+          <button id="show-result" class="btn">=</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+
+      function type(value) {
+        const currentValue = display.value;
+
+        if (currentValue == 0 || currentValue == lastValue) {
+          display.value = value;
+        } else {
+          display.value = currentValue + value;
+        }
+      }
+
+      let lastValue = 0;
+      // 2️⃣.1️⃣
+      // need to store operation state (which was the last operation clicked)
+      let operation = null;
+
+      function addition() {
+        const currentValue = display.value;
+        lastValue = lastValue + Number.parseInt(currentValue); // remove on 2️⃣.2️⃣
+        // // 2️⃣.2️⃣
+        // // complete last operation
+        // if (operation == "addition") {
+        //   lastValue = lastValue + Number.parseInt(currentValue);
+        // } else if (operation == "subtraction") {
+        //   lastValue = lastValue - Number.parseInt(currentValue);
+        // } else {
+        //   lastValue = Number.parseInt(currentValue);
+        // }
+        // operation = "addition";
+        display.value = lastValue;
+      }
+
+      document.getElementById("addition").addEventListener("click", addition);
+
+      // 1️⃣
+      function subtraction() {
+        const currentValue = display.value;
+        lastValue = lastValue - Number.parseInt(currentValue); // remove on 2️⃣.2️⃣
+        // // 2️⃣.2️⃣
+        // // complete last operation
+        // if (operation == "addition") {
+        //   lastValue = lastValue + Number.parseInt(currentValue);
+        // } else if (operation == "subtraction") {
+        //   lastValue = lastValue - Number.parseInt(currentValue);
+        // } else {
+        //   lastValue = Number.parseInt(currentValue);
+        // }
+        // operation = "subtraction";
+        display.value = lastValue;
+      }
+
+      document
+        .getElementById("subtraction")
+        .addEventListener("click", subtraction);
+
+      document
+        .getElementById("show-result")
+        .addEventListener("click", function () {
+          const currentValue = display.value;
+          // // 2️⃣.2️⃣
+          // // complete last operation
+          // if (operation == "addition") {
+          //   lastValue = lastValue + Number.parseInt(currentValue);
+          // } else if (operation == "subtraction") {
+          //   lastValue = lastValue - Number.parseInt(currentValue);
+          // } else {
+          //   lastValue = Number.parseInt(currentValue);
+          // }
+          // operation = null;
+          display.value = lastValue;
+        });
+
+      document.getElementById("0").addEventListener("click", function () {
+        type(0);
+      });
+      document.getElementById("1").addEventListener("click", function () {
+        type(1);
+      });
+      document.getElementById("2").addEventListener("click", function () {
+        type(2);
+      });
+      document.getElementById("3").addEventListener("click", function () {
+        type(3);
+      });
+      document.getElementById("4").addEventListener("click", function () {
+        type(4);
+      });
+      document.getElementById("5").addEventListener("click", function () {
+        type(5);
+      });
+      document.getElementById("6").addEventListener("click", function () {
+        type(6);
+      });
+      document.getElementById("7").addEventListener("click", function () {
+        type(7);
+      });
+      document.getElementById("8").addEventListener("click", function () {
+        type(8);
+      });
+      document.getElementById("9").addEventListener("click", function () {
+        type(9);
+      });
+
+      document.getElementById("clear").addEventListener("click", function () {
+        display.value = 0;
+        // // 2️⃣.3️⃣
+        // reset operation state
+        operation = null;
+      });
+    </script>
+  </body>
+</html>
