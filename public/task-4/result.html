@@ -50,18 +50,48 @@
       }
 
       let lastValue = 0;
+      let operation = null;
 
-      function addition() {
+      document.getElementById("addition").onclick = function () {
         const currentValue = display.value;
-        lastValue = lastValue + Number.parseInt(currentValue);
-        display.value = lastValue;
-      }
 
-      document.getElementById("addition").onclick = addition;
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        operation = "addition";
+        display.value = lastValue;
+      };
+
+      document.getElementById("subtraction").onclick = function () {
+        const currentValue = display.value;
+
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        operation = "subtraction";
+        display.value = lastValue;
+      };
 
       document.getElementById("show-result").onclick = function () {
-        addition();
-        lastValue = 0;
+        const currentValue = display.value;
+
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        display.value = lastValue;
+        operation = null;
       };
 
       document.getElementById("0").onclick = function () {
@@ -98,6 +128,7 @@
       document.getElementById("clear").onclick = function () {
         display.value = 0;
         lastValue = 0;
+        operation = null;
       };
     </script>
   </body>
