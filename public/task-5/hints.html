@@ -50,9 +50,9 @@
       }
 
       let lastValue = 0;
-      // 2️⃣.1️⃣
-      // need to store operation state (which was the last operation clicked)
-      let operation = null;
+      // // 2️⃣.1️⃣
+      // // need to store operation state (which was the last operation clicked)
+      // let operation = null;
 
       function addition() {
         const currentValue = display.value;
@@ -70,12 +70,29 @@
         display.value = lastValue;
       }
 
-      document.getElementById("addition").addEventListener("click", addition);
+      document.getElementById("addition").onclick = addition;
 
-      // 1️⃣
-      function subtraction() {
+      // // 1️⃣
+      // function subtraction() {
+      //   const currentValue = display.value;
+      //   lastValue = lastValue - Number.parseInt(currentValue); // remove on 2️⃣.2️⃣
+      //   // // 2️⃣.2️⃣
+      //   // // complete last operation
+      //   // if (operation == "addition") {
+      //   //   lastValue = lastValue + Number.parseInt(currentValue);
+      //   // } else if (operation == "subtraction") {
+      //   //   lastValue = lastValue - Number.parseInt(currentValue);
+      //   // } else {
+      //   //   lastValue = Number.parseInt(currentValue);
+      //   // }
+      //   // operation = "subtraction";
+      //   display.value = lastValue;
+      // }
+
+      document.getElementById("subtraction").onclick = subtraction;
+
+      document.getElementById("show-result").onclick = function () {
         const currentValue = display.value;
-        lastValue = lastValue - Number.parseInt(currentValue); // remove on 2️⃣.2️⃣
         // // 2️⃣.2️⃣
         // // complete last operation
         // if (operation == "addition") {
@@ -85,68 +102,47 @@
         // } else {
         //   lastValue = Number.parseInt(currentValue);
         // }
-        // operation = "subtraction";
+        // operation = null;
         display.value = lastValue;
-      }
+      };
 
-      document
-        .getElementById("subtraction")
-        .addEventListener("click", subtraction);
-
-      document
-        .getElementById("show-result")
-        .addEventListener("click", function () {
-          const currentValue = display.value;
-          // // 2️⃣.2️⃣
-          // // complete last operation
-          // if (operation == "addition") {
-          //   lastValue = lastValue + Number.parseInt(currentValue);
-          // } else if (operation == "subtraction") {
-          //   lastValue = lastValue - Number.parseInt(currentValue);
-          // } else {
-          //   lastValue = Number.parseInt(currentValue);
-          // }
-          // operation = null;
-          display.value = lastValue;
-        });
-
-      document.getElementById("0").addEventListener("click", function () {
+      document.getElementById("0").onclick = function () {
         type(0);
-      });
-      document.getElementById("1").addEventListener("click", function () {
+      };
+      document.getElementById("1").onclick = function () {
         type(1);
-      });
-      document.getElementById("2").addEventListener("click", function () {
+      };
+      document.getElementById("2").onclick = function () {
         type(2);
-      });
-      document.getElementById("3").addEventListener("click", function () {
+      };
+      document.getElementById("3").onclick = function () {
         type(3);
-      });
-      document.getElementById("4").addEventListener("click", function () {
+      };
+      document.getElementById("4").onclick = function () {
         type(4);
-      });
-      document.getElementById("5").addEventListener("click", function () {
+      };
+      document.getElementById("5").onclick = function () {
         type(5);
-      });
-      document.getElementById("6").addEventListener("click", function () {
+      };
+      document.getElementById("6").onclick = function () {
         type(6);
-      });
-      document.getElementById("7").addEventListener("click", function () {
+      };
+      document.getElementById("7").onclick = function () {
         type(7);
-      });
-      document.getElementById("8").addEventListener("click", function () {
+      };
+      document.getElementById("8").onclick = function () {
         type(8);
-      });
-      document.getElementById("9").addEventListener("click", function () {
+      };
+      document.getElementById("9").onclick = function () {
         type(9);
-      });
+      };
 
-      document.getElementById("clear").addEventListener("click", function () {
+      document.getElementById("clear").onclick = function () {
         display.value = 0;
         // // 2️⃣.3️⃣
         // reset operation state
         operation = null;
-      });
+      };
     </script>
   </body>
 </html>
