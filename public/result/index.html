@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator - Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <div class="widget">
+        <div class="row">
+          <input id="display" value="0" />
+        </div>
+        <div class="row">
+          <button id="7" class="btn">7</button>
+          <button id="8" class="btn">8</button>
+          <button id="9" class="btn">9</button>
+          <button id="clear" class="btn clear">C</button>
+        </div>
+        <div class="row">
+          <button id="4" class="btn">4</button>
+          <button id="5" class="btn">5</button>
+          <button id="6" class="btn">6</button>
+          <button id="addition" class="btn operation">+</button>
+        </div>
+        <div class="row">
+          <button id="1" class="btn">1</button>
+          <button id="2" class="btn">2</button>
+          <button id="3" class="btn">3</button>
+          <button id="subtraction" class="btn operation">–</button>
+        </div>
+        <div class="row">
+          <button id="0" class="btn">0</button>
+          <button id="show-result" class="btn">=</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+
+      function type(value) {
+        const currentValue = display.value;
+
+        if (currentValue == 0 || currentValue == lastValue) {
+          display.value = value;
+        } else {
+          display.value = currentValue + value;
+        }
+      }
+
+      let lastValue = 0;
+      let operation = null;
+
+      document.getElementById("addition").onclick = function () {
+        const currentValue = display.value;
+
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        operation = "addition";
+        display.value = lastValue;
+      };
+
+      document.getElementById("subtraction").onclick = function () {
+        const currentValue = display.value;
+
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        operation = "subtraction";
+        display.value = lastValue;
+      };
+
+      document.getElementById("show-result").onclick = function () {
+        const currentValue = display.value;
+
+        if (operation == "addition") {
+          lastValue = lastValue + Number.parseInt(currentValue);
+        } else if (operation == "subtraction") {
+          lastValue = lastValue - Number.parseInt(currentValue);
+        } else {
+          lastValue = Number.parseInt(currentValue);
+        }
+        display.value = lastValue;
+        operation = null;
+      };
+
+      document.getElementById("0").onclick = function () {
+        type(0);
+      };
+      document.getElementById("1").onclick = function () {
+        type(1);
+      };
+      document.getElementById("2").onclick = function () {
+        type(2);
+      };
+      document.getElementById("3").onclick = function () {
+        type(3);
+      };
+      document.getElementById("4").onclick = function () {
+        type(4);
+      };
+      document.getElementById("5").onclick = function () {
+        type(5);
+      };
+      document.getElementById("6").onclick = function () {
+        type(6);
+      };
+      document.getElementById("7").onclick = function () {
+        type(7);
+      };
+      document.getElementById("8").onclick = function () {
+        type(8);
+      };
+      document.getElementById("9").onclick = function () {
+        type(9);
+      };
+
+      document.getElementById("clear").onclick = function () {
+        display.value = 0;
+        lastValue = 0;
+        operation = null;
+      };
+    </script>
+  </body>
+</html>
