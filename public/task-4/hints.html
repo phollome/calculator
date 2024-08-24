@@ -40,15 +40,15 @@
       const display = document.getElementById("display");
 
       // 1️⃣
-      // We need a variable to store last value to know what to add or subtract.
+      // Wir brauchen eine Variable, um den letzten Wert zum speicht, damit wir wissen, was addiert oder subtrahiert werden muss.
       // let lastValue = 0;
 
       // // 2️⃣
       // document.getElementById("addition").onclick = function () {
       //   const currentValue = display.value;
-      //   // We need to convert the current value to a number before adding it to the last value. Otherwise, it will concatenate the values as strings.
+      //   // Wir müssen den aktuellen Wert in eine Zahl umwandeln, bevor wir ihn zum letzten Wert addieren. Andernfalls werden die Werte als Zeichenfolgen verkettet.
       //   lastValue = lastValue + currentValue;
-      //   // Replace the line above with the line below.
+      //   // Ersetzt die obige Zeile durch die folgende Zeile.
       //   lastValue = lastValue + Number.parseInt(currentValue);
       //   display.value = lastValue;
       // };
@@ -57,10 +57,10 @@
         const currentValue = display.value;
 
         // // 3️⃣
-        // // If current value equals last value, we need to reset the display. Otherwise, we append the value.
-        // if (currentValue == 0) {
-        // // Replace the line above with the line below.
-        if (currentValue == 0 || currentValue == lastValue) {
+        // // Wenn der aktuelle Wert dem letzten Wert entspricht, müssen wir die Anzeige zurücksetzen. Andernfalls hängen wir den Wert an.
+        if (currentValue == 0) {
+          // // Ersetze die obige Zeile durch die folgende Zeile.
+          // if (currentValue == 0 || currentValue == lastValue) {
           display.value = value;
         } else {
           display.value = currentValue + value;
@@ -75,7 +75,7 @@
       // };
 
       // // 5️⃣
-      // // 🚫 We need to know the last operation to perform the correct calculation.
+      // // 🚫 Um die korrekte Berechnung durchführen zu können, müssen wir die letzte Operation kennen.
 
       // let operation = null;
 
